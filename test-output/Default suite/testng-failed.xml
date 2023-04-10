@@ -6,6 +6,7 @@
       <class name="Automation_Amity.Amity">
         <methods>
           <include name="TestCase_2_VerifyUserCanAddPayGrades"/>
+          <include name="TestCase_1_SearchUserWithPartialTextMatch"/>
         </methods>
       </class> <!-- Automation_Amity.Amity -->
     </classes>

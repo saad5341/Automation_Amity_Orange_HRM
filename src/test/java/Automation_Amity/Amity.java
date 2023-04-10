@@ -1,6 +1,7 @@
 package Automation_Amity;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -42,23 +43,19 @@ public class Amity {
 //		5. Type "ch" in the Employee Name text input field
 		WebElement Employee_Name = driver.findElement(By.xpath("(//input[@placeholder='Type for hints...'])[1]"));
 		Employee_Name.sendKeys("ch");
+		Thread.sleep(5000);
 
 //		Expected Results:
 //		Verify user can see a list of predicted users that has "ch" in their names
 //		(ignore case/not case sensitive)
-//	    List<WebElement> employeeList = driver.findElements(By.xpath("//Dropdown_Suggestion_Field//li"));
-//	    boolean isEmployeeListDisplayed = false;
-//	    for (WebElement employee : employeeList) {
-//	        String employeeName = employee.getText();
-//	        if (employeeName.toLowerCase().contains("ch")) {
-//	            isEmployeeListDisplayed = true;
-//	        } else {
-//	            isEmployeeListDisplayed = false;
-//	            break;
-//	        }
-//	    }
-//	    System.out.println(isEmployeeListDisplayed);
-//	   Assert.assertTrue(isEmployeeListDisplayed);
+		List<WebElement> employeeList = driver.findElements(By.cssSelector(".oxd-autocomplete-dropdown"));
+		System.out.println("Length = " + employeeList.size());
+		Assert.assertTrue(employeeList.size() == 1);
+
+//		Another way for verifying
+//		List<WebElement> employeeList = driver.findElements(By.cssSelector(".oxd-autocomplete-dropdown"));
+//	    System.out.println("Length = " + employeeList.size());
+//	    Assert.assertTrue(employeeList.size() == 1);
 
 //		6. Click on green Search button
 		WebElement Search_Button = driver.findElement(By.xpath("(//button[normalize-space()='Search'])[1]"));
